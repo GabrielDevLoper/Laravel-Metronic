@@ -9,6 +9,8 @@ class cadastroAuxiliarController extends Controller
 {
 
     public function getCadastroAux(){
+        //esta variavel $data é criada para receber os dados do modelo cadastroAuxiliar que foram
+        //armazenados no BD
         $data['cadastro_auxiliar_tipo_manual'] = cadastroAuxiliar::all();
         return view('private.cadastros_tipo_manual.cadastro_tipo_manual', $data);
     }

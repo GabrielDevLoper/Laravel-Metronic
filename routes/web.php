@@ -24,3 +24,10 @@ Route::post('/CadastroAuxiliar/inserir', 'cadastroAuxiliarController@store')->na
 Route::put('/CadastroAuxiliar/alterar/{id}', 'cadastroAuxiliarController@update')->name('alterar_cadastros');
 Route::delete('/CadastroAuxiliar/deletar/{id}', 'cadastroAuxiliarController@destroy')->name('apagar_cadastros');
 /*FIM DAS ROTAS DE CADASTROS AUXILIARES TIPO MANUAL*/
+
+
+/*ROTAS DOS CADASTROS MANUAIS*/
+Route::get('/CadastroManual', 'cadastroManualController@getCadastroManual')->name('tela_cadastroManual');
+Route::post('/CadastroManual/inserir', 'cadastroManualController@store')->name('salvar_cadastroManual');
+
+/*FIM DAS ROTAS DE CADASTROS MANUAIS*/
