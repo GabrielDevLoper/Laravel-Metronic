@@ -13,6 +13,11 @@
             <div class="alert alert-success">
                 {{Session('exclusao')}}
             </div>
+            @endif
+            @if(Session('mensagemErro'))
+            <div class="alert alert-danger">
+                {{Session('mensagemErro')}}
+            </div>
             @endif 
         <div class="col-lg-12">
             <table class="table table-striped table-bordered table-hover">
@@ -22,7 +27,8 @@
                         <th>Tipo do Manual</th>
                         <th>Dt. Criação</th>
                         <th>Dt. Alteração</th>
-                        <th>Ações</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
                     </tr>               
                 </thead>
                 <tbody>
@@ -33,13 +39,10 @@
                         <td>{{$u->created_at}}</td>
                         <td>{{$u->updated_at}}</td>
                         <td>
-                            <form action="{{route('apagar_cadastros',$u->id)}}" method="POST">
-                                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
-                                <button type="submit" class="btn btn-sm btn-primary">Alterar</button>
-                               
-                            </form>
+                            <a href="{{route('apagar_cadastros', $u->id)}}" class="btn btn-danger btn-outline">Excluir</a> 
+                        </td>
+                        <td>
+                            <a href="{{route('apagar_cadastros', $u->id)}}" class="btn btn-primary btn-outline">Alterar</a>
                         </td>
                     </tr>
                     @endforeach

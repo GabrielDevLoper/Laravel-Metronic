@@ -7,8 +7,7 @@
 @stop
 @section('conteudo')
 
-
-    <div class="col-lg-12">
+<div class="col-lg-12">
 		<div class="kt-portlet kt-margin-top-20">
 			<div class="kt-portlet__head">
 				<div class="kt-portlet__head-label">
@@ -17,23 +16,20 @@
 					</h3>
 				</div>
 			</div>
-    <form action="{{Route('salvar_cadastroManual')}}" class="kt-form kt-form--label-right" method="POST" enctype="multipart/form-data">
+
+            <form action="{{Route('salvar_cadastroManual')}}" class="kt-form kt-form--label-right" method="POST" enctype="multipart/form-data">
 				@if(Session('mensagem'))
                 <div class="alert alert-success">
                     {{Session('mensagem')}}
-                </div>
-                @endif 
-				@if(Session('mensagemErro'))
-                <div class="alert alert-danger">
-                    {{Session('mensagemErro')}}
                 </div>
                 @endif 
     <input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="kt-portlet__body">
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label">Descrição</label>
+
 						<div class="col-lg-6">
-							<input type="name" class="form-control" placeholder="Descrição" name="descricao">
+							<input type="name" class="form-control" placeholder="Descrição" name="descricao" value="">
 							<span class="form-text text-muted">Insira a Descrição do Manual</span>
 						</div>
 					</div>
@@ -47,7 +43,7 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label">Escolha o Tipo do Manual:</label>
 						<div class="col-lg-6">
-                            <select class="itemName form-control" style="width:500px;" name="tipo_manual">
+                            <select class="itemName form-control" style="width:500px;" name="tipo_manual" required accept="application/pdf">
                                 @foreach($cadastro_auxiliar_tipo_manual as $c)
                                     <option name="tipo_manual">{{$c->tipo_manual}}</option>
                                 @endforeach
@@ -85,10 +81,13 @@
 						</div>
 					</div>
 				</div>
-			</form>           
-    	
-	
-		
+			</form> 
 
-		
+
+
+
+
+
+
+
 @stop

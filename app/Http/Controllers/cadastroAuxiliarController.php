@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\cadastroAuxiliar;
+use App\CadastroManual;
+use App\Http\Requests\ValidaRequest;
 
 class cadastroAuxiliarController extends Controller
 {
@@ -31,11 +33,19 @@ class cadastroAuxiliarController extends Controller
     }
 
     public function destroy($id){
-        $cadastrosAux = cadastroAuxiliar::findOrFail($id);
-        $cadastrosAux->delete();
+        
+        $cadastrosAux = cadastroAuxiliar::find($id);
+        $cadastroMan = CadastroManual::where('tipo_manual', $id)->first();
+        if($cadastrosAux){
+            try{
+                $cadastrosAux->delete();
+                return redirect()->back()->with(['exclusao', "Cadastro Auxiliar Excluído com Sucesso"]);
+            }catch(\Execption $e){
+                return redirect()->back()->with('mensagemErro', "Erro ao realizar operação");
+            }
+        }
 
-        $msg = "Cadastro Auxiliar Excluído com Sucesso";
-        return redirect()->back()->with('exclusao', $msg);
+        
     }
 
     public function update(Request $request, $id){

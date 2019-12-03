@@ -54,7 +54,7 @@
 				</div>
 			</form>
 			<!--end::Form-->			
-		</div>
+		
 
 
 

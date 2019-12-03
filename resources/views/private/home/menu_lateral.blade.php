@@ -49,7 +49,7 @@
             </li>
             
             <li class="kt-menu__item " aria-haspopup="true"><a
-                    href="{{Route('listar_cadastros')}}"
+                    href="{{Route('tela_listarManuais')}}"
                     class="kt-menu__link "><i
                     class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
                     class="kt-menu__link-text">Listar Cadastros - Manual</span></a>

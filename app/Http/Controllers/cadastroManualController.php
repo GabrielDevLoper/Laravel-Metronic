@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\cadastroManual;
+use App\CadastroManual;
 use App\cadastroAuxiliar;
+use App\Http\Requests\CadastroManual\NovoRequest;
 
 class cadastroManualController extends Controller
 {
@@ -12,24 +13,39 @@ class cadastroManualController extends Controller
         $data['cadastro_auxiliar_tipo_manual'] = cadastroAuxiliar::all();
         return view('private.cadastro_manual.cadastro_manual', $data);
     }
+    public function getListarCadastroManual(){
+        $data['cadastro_manual'] = CadastroManual::all();
+        return view('private.cadastro_manual.listar_cadastroManual', $data);
+    }
 
-    public function store(Request $request){
-        $ext = $request->file('arquivo_pdf')->getClientOriginalExtension();
-        //cadastroManual::create($request->all());
-        $cadastroMan = new cadastroManual();
-        $cadastroMan->descricao = $request->descricao;
-        $cadastroMan->id_usuario = $request->id_usuario;
-        $cadastroMan->tipo_manual = $request->tipo_manual;
-        //$cadastroMan->arquivo_pdf = $request->arquivo_pdf;
+    public function getAlterarCadastroManual(){
+        $data0['cadastro_auxiliar_tipo_manual'] = cadastroAuxiliar::all();
+        $data1['cadastro_manual'] = CadastroManual::all();
+        return view('private.cadastro_manual.altera_cadastroManual', $data0, $data1);
+    }
 
-        $name = $cadastroMan->descricao;
-        $nameFile = "{$name}.{$ext}";
-        $cadastroMan->arquivo_pdf = $request->file('arquivo_pdf')->storeAs('uploads',$nameFile);
-        $cadastroMan->save();
+    public function store(NovoRequest $request){
+        //dd($request->all());
+        try{
+            $ext = $request->file('arquivo_pdf')->getClientOriginalExtension();
+            $name = $request->file('arquivo_pdf')->getClientOriginalName();
+       
+            CadastroManual::create([
+                'descricao' => $request->descricao,
+                'id_usuario' => $request->id_usuario,
+                'tipo_manual' => $request->tipo_manual,
+                'arquivo_pdf' => $request->file('arquivo_pdf')->storeAs('uploads',$name)
+            ]);
+
         
+        return redirect()->back()->with('mensagem', "Cadastro Manual Inserido com Sucesso"); 
 
-        $msg = "Cadastro Auxiliar Inserido com Sucesso";
-        return redirect()->back()->with('mensagem', $msg);
+        }catch(\Exception $e){
+            return redirect()->back()->with('mensagemErro', "Erro ao realizar operação"); 
+        }
+        
+        
+        
     }
 
     public function destroy($id){
