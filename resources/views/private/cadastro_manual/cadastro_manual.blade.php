@@ -18,6 +18,7 @@
 				</div>
 			</div>
     <form action="{{Route('salvar_cadastroManual')}}" class="kt-form kt-form--label-right" method="POST" enctype="multipart/form-data">
+	{{Form::open(['route'=>'salvar_cadastroManual', 'method'=>'post', 'enctype'=>'multipart/form-data'])}}
 				@if(Session('mensagem'))
                 <div class="alert alert-success">
                     {{Session('mensagem')}}
@@ -85,6 +86,7 @@
 						</div>
 					</div>
 				</div>
+				{{Form::close()}}
 			</form>           
     	
 	
