@@ -57,4 +57,6 @@
             {{$listaCadastrosManuais->render()}}
         </div>
     </div>
+
+    
 @stop

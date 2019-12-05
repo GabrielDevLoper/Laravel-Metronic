@@ -32,16 +32,20 @@ class cadastroAuxiliarController extends Controller
     }
 
     public function destroy(ValidaRequest $request,$id){
-        
-        $cadastrosAux = cadastroAuxiliar::find($id);
-        //$cadastroMan = CadastroManual::where('tipo_manual', $id)->first();
-        if($cadastrosAux){
+       
+        //$cadastrosAux = cadastroAuxiliar::find($id);
+        $cadastroMan = CadastroManual::where('tipo_manual', $id)->first();
+        if(!$cadastroMan){
             try{
+                $cadastrosAux = cadastroAuxiliar::find($id);
                 $cadastrosAux->delete();
                 return redirect()->back()->with(['exclusao', "Cadastro Auxiliar Excluído com Sucesso"]);
             }catch(\Execption $e){
                 return redirect()->back()->with('mensagemErro', "Erro ao realizar operação");
             }
+        }else{
+            return redirect()->back()->with('mensagemErro', "Este Tipo Manual ja está em uso");
+
         }
 
         
