@@ -22,7 +22,7 @@
                 <div class="alert alert-success">
                     {{Session('mensagem')}}
                 </div>
-                @endif 
+                @endif
     <input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="kt-portlet__body">
 					<div class="form-group row">
@@ -33,13 +33,7 @@
 							<span class="form-text text-muted">Insira a Descrição do Manual</span>
 						</div>
 					</div>
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">Id do Usuario:</label>
-						<div class="col-lg-6">
-							<input type="number" class="form-control" placeholder="Id do Usuário" name="id_usuario">
-							<span class="form-text text-muted">Insira o ID do usuario que cadastrou este manual</span>
-						</div>
-					</div>
+
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label">Escolha o Tipo do Manual:</label>
 						<div class="col-lg-6">
@@ -61,7 +55,7 @@
                                     <input class="uppy-FileInput-input kt-uppy__input-control" type="file" name="arquivo_pdf" id="kt_uppy_1_input_control">
                                     <label class="kt-uppy__input-label btn btn-label-brand btn-bold btn-font-sm" for="kt_uppy_1_input_control">Insira Arquivo</label>
                                 </div>
-                                
+
 								<div class="kt-uppy__list"></div>
 								<div class="kt-uppy__status"></div>
                                 <div class="kt-uppy__informer kt-uppy__informer--min"></div>
@@ -81,7 +75,7 @@
 						</div>
 					</div>
 				</div>
-			</form> 
+			</form>
 
 
 

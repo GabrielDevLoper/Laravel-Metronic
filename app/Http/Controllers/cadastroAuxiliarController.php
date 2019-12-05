@@ -28,14 +28,13 @@ class cadastroAuxiliarController extends Controller
         $cadastrosAux->tipo_manual = $request->tipo_manual;
         $cadastrosAux->save();*/
 
-        $msg = "Cadastro Auxiliar Inserido com Sucesso";
-        return redirect()->back()->with('mensagem', $msg);
+        return redirect()->back()->with('mensagem', "Cadastro Auxiliar Inserido com Sucesso");
     }
 
-    public function destroy($id){
+    public function destroy(ValidaRequest $request,$id){
         
         $cadastrosAux = cadastroAuxiliar::find($id);
-        $cadastroMan = CadastroManual::where('tipo_manual', $id)->first();
+        //$cadastroMan = CadastroManual::where('tipo_manual', $id)->first();
         if($cadastrosAux){
             try{
                 $cadastrosAux->delete();
@@ -54,7 +53,7 @@ class cadastroAuxiliarController extends Controller
         $cadastrosAux->tipo_manual = $request->tipo_manual;
         $cadastrosAux->save();
 
-        $msg = "Cadastro Auxiliar Alterado com Sucesso";
-        return redirect()->back()->with('mensagem', $msg);
+        
+        return redirect()->back()->with('mensagem', "Cadastro Auxiliar Alterado com Sucesso");
     }
 }

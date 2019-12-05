@@ -17,7 +17,7 @@ class CreateCadastroManualsTable extends Migration
             $table->bigIncrements('id');
             $table->string('descricao');
             $table->integer('id_usuario');
-            $table->string('tipo_manual');
+            $table->integer('tipo_manual');
             $table->string('arquivo_pdf');
             $table->timestamps();
         });

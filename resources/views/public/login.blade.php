@@ -49,7 +49,15 @@ License: You must have a valid license purchased only from themeforest(the above
             margin: 0 auto;
             background: #fff;
             padding: 40px;
-            opacity: 0.9;
+           /* opacity: 0.9;*/
+        }
+        .kt-login.kt-login--v3 .kt-login__wrapper .kt-login__container .kt-form .form-control {
+            height: 46px;
+            border: none;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            margin-top: 1.5rem;
+            background: #ddd;
         }
     </style>
 </head>

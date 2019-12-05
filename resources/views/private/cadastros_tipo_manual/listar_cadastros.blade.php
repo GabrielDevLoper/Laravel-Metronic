@@ -21,7 +21,7 @@
             @endif 
         <div class="col-lg-12">
             <table class="table table-striped table-bordered table-hover">
-                <thead class="thead-dark">
+                <thead class="">
                     <tr>
                         <th>Id do Usuário</th>
                         <th>Tipo do Manual</th>

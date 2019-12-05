@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
-use Illuminate\Validation\Rule;
-use Illuminate\Foundation\Http\FormRequest;
-use App\cadastroAuxiliar;
+namespace App\Http\Requests\Login;
 
-class ValidaRequest extends FormRequest
+use Illuminate\Foundation\Http\FormRequest;
+
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +23,17 @@ class ValidaRequest extends FormRequest
      */
     public function rules()
     {
-
-        $valida = cadastroAuxiliar::pluck('id');
         return [
-            ('id') => [Rule::notIn($valida)]
+            'usuario' => 'request',
+            'senha' => 'request'
         ];
     }
 
-    public function messages(){
-
+    public function messages()
+    {
         return [
-            'id.not_in'=>'Não é possivel excluir, pois está em uso'
+            'usuario.request' => 'Favor digitar usuário',
+            'senha.request' => 'Favor digitar a senha'
         ];
     }
 }

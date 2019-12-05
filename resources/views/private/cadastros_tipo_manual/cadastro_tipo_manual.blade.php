@@ -25,26 +25,22 @@
                 <div class="alert alert-success">
                     {{Session('mensagem')}}
                 </div>
-                @endif 
+                @endif
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="kt-portlet__body">
 					<div class="form-group form-group-last">
 						<div class="alert alert-secondary" role="alert">
 							<div class="alert-icon"><i class="flaticon-warning kt-font-brand"></i></div>
 						  	<div class="alert-text">
-								The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
+							<!-- Espaço para inserir alguma alerta -->
 							</div>
 						</div>
 					</div>
-                    <div class="form-group">
-						<label>Id do Usuário</label>
-						<input type="number" class="form-control" name="id_usuario" placeholder="Id do Usuario">
-						
-					</div>
+
 					<div class="form-group">
 						<label>Tipo do Manual</label>
 						<input type="text" class="form-control" name="tipo_manual" placeholder="Nome do Tipo do Manual">
-						
+
 					</div>
 				<div class="kt-portlet__foot">
 					<div class="kt-form__actions">
@@ -53,8 +49,8 @@
 					</div>
 				</div>
 			</form>
-			<!--end::Form-->			
-		
+			<!--end::Form-->
+
 
 
 
@@ -63,13 +59,13 @@
 
     <section class="form-section col-lg-12 ">
         <h1>Cadastro Auxiliar Tipo Manual</h1>
-        
+
         <div class="form-wrapper">
             @if(Session('mensagem'))
             <div class="alert alert-success">
                 {{Session('mensagem')}}
             </div>
-            @endif 
+            @endif
             <form action="/CadastroAuxiliar/inserir" method="POST" >
 
             <input type="hidden" name="_token" value="{{csrf_token()}}">

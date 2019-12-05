@@ -17,18 +17,18 @@
 					</h3>
 				</div>
 			</div>
-    <form action="{{Route('salvar_cadastroManual')}}" class="kt-form kt-form--label-right" method="POST" enctype="multipart/form-data">
-	{{Form::open(['route'=>'salvar_cadastroManual', 'method'=>'post', 'enctype'=>'multipart/form-data'])}}
+    <!-- <form action="{{Route('salvar_cadastroManual')}}" class="kt-form kt-form--label-right" method="POST" enctype="multipart/form-data"> -->
+			{{Form::open(['route'=>'salvar_cadastroManual', 'method'=>'post', 'enctype'=>'multipart/form-data'])}}
 				@if(Session('mensagem'))
                 <div class="alert alert-success">
                     {{Session('mensagem')}}
                 </div>
-                @endif 
+                @endif
 				@if(Session('mensagemErro'))
                 <div class="alert alert-danger">
                     {{Session('mensagemErro')}}
                 </div>
-                @endif 
+                @endif
     <input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="kt-portlet__body">
 					<div class="form-group row">
@@ -38,21 +38,11 @@
 							<span class="form-text text-muted">Insira a Descrição do Manual</span>
 						</div>
 					</div>
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label">Id do Usuario:</label>
-						<div class="col-lg-6">
-							<input type="number" class="form-control" placeholder="Id do Usuário" name="id_usuario">
-							<span class="form-text text-muted">Insira o ID do usuario que cadastrou este manual</span>
-						</div>
-					</div>
+
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label">Escolha o Tipo do Manual:</label>
 						<div class="col-lg-6">
-                            <select class="itemName form-control" style="width:500px;" name="tipo_manual">
-                                @foreach($cadastro_auxiliar_tipo_manual as $c)
-                                    <option name="tipo_manual">{{$c->tipo_manual}}</option>
-                                @endforeach
-                            </select>
+							{{Form::select('tipo_manual', $tipo_manual, null, ['class' => 'form-control'])}}
                             <span class="form-text text-muted">Escolha o Tipo do Manual</span>
 						</div>
 					</div>
@@ -66,7 +56,7 @@
                                     <input class="uppy-FileInput-input kt-uppy__input-control" type="file" name="arquivo_pdf" id="kt_uppy_1_input_control">
                                     <label class="kt-uppy__input-label btn btn-label-brand btn-bold btn-font-sm" for="kt_uppy_1_input_control">Insira Arquivo</label>
                                 </div>
-                                
+
 								<div class="kt-uppy__list"></div>
 								<div class="kt-uppy__status"></div>
                                 <div class="kt-uppy__informer kt-uppy__informer--min"></div>
@@ -87,10 +77,10 @@
 					</div>
 				</div>
 				{{Form::close()}}
-			</form>           
-    	
-	
-		
+			<!-- </form>            -->
 
-		
+
+
+
+
 @stop
