@@ -24,16 +24,19 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'usuario' => 'request',
-            'senha' => 'request'
+            'usuario' => 'required',
+            'senha' => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'usuario.request' => 'Favor digitar usuário',
-            'senha.request' => 'Favor digitar a senha'
+            'usuario.required' => 'Favor digitar usuário',
+            'senha.required' => 'Favor digitar a senha'
         ];
     }
 }
+
+//05637229406
+//teste1

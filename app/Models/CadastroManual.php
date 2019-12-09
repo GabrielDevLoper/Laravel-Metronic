@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\cadastroAuxiliar;
+use App\Models\CadastroAuxiliarTipoManual;
 
 class CadastroManual extends Model
 {
@@ -26,7 +26,7 @@ class CadastroManual extends Model
     }
 
     public function tipoManual(){
-        return $this->hasOne(cadastroAuxiliar::class,'id', 'tipo_manual');
+        return $this->hasOne(CadastroAuxiliarTipoManual::class,'id', 'tipo_manual');
     }
 
     

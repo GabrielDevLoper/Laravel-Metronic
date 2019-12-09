@@ -1,6 +1,6 @@
 @extends('private.templates.master')
 @section('menu_lateral')
-    @include('private.home.menu_lateral')
+    @include('private.cadastros_tipo_manual.menu_lateral')
 @stop
 @section('titulo_pagina')
     Página Inicial
@@ -18,7 +18,7 @@
             <div class="alert alert-danger">
                 {{Session('mensagemErro')}}
             </div>
-            @endif 
+            @endif
         <div class="col-lg-12">
             <table class="table table-striped table-bordered table-hover">
                 <thead class="">
@@ -29,7 +29,7 @@
                         <th>Dt. Alteração</th>
                         <th>Editar</th>
                         <th>Excluir</th>
-                    </tr>               
+                    </tr>
                 </thead>
                 <tbody>
                     @foreach($cadastro_auxiliar_tipo_manual as $u)
@@ -39,20 +39,20 @@
                         <td>{{$u->created_at}}</td>
                         <td>{{$u->updated_at}}</td>
                         <td>
-                            <a href="{{route('apagar_cadastros', $u->id)}}" class="btn btn-danger btn-outline">Excluir</a> 
+                            <a href="{{route('apagar_cadastros', $u->id)}}" class="btn btn-danger btn-outline">Excluir</a>
                         </td>
                         <td>
                             <a href="{{route('apagar_cadastros', $u->id)}}" class="btn btn-primary btn-outline">Alterar</a>
                         </td>
                     </tr>
                     @endforeach
-                
+
                 </tbody>
-           
+
             </table>
-            
+
         </div>
 
     </div>
-    
+
 @stop

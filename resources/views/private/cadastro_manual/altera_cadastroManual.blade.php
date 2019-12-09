@@ -1,13 +1,14 @@
 @extends('private.templates.master')
 @section('menu_lateral')
-    @include('private.home.menu_lateral')
+    @include('private.cadastro_manual.menu_lateral')
 @stop
 @section('titulo_pagina')
     Página Inicial
 @stop
 @section('conteudo')
 
-<div class="col-lg-12">
+
+    <div class="col-lg-12">
 		<div class="kt-portlet kt-margin-top-20">
 			<div class="kt-portlet__head">
 				<div class="kt-portlet__head-label">
@@ -16,20 +17,24 @@
 					</h3>
 				</div>
 			</div>
-
-            <form action="{{Route('salvar_cadastroManual')}}" class="kt-form kt-form--label-right" method="POST" enctype="multipart/form-data">
+    <!-- <form action="{{Route('salvar_cadastroManual')}}" class="kt-form kt-form--label-right" method="POST" enctype="multipart/form-data"> -->
+			{{Form::open(['route'=>'salvar_cadastroManual', 'method'=>'post', 'enctype'=>'multipart/form-data'])}}
 				@if(Session('mensagem'))
                 <div class="alert alert-success">
                     {{Session('mensagem')}}
+                </div>
+                @endif
+				@if(Session('mensagemErro'))
+                <div class="alert alert-danger">
+                    {{Session('mensagemErro')}}
                 </div>
                 @endif
     <input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="kt-portlet__body">
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label">Descrição</label>
-
 						<div class="col-lg-6">
-							<input type="name" class="form-control" placeholder="Descrição" name="descricao" value="">
+							<input type="name" class="form-control" placeholder="Descrição" name="descricao" value="{{$u->descricao}}">
 							<span class="form-text text-muted">Insira a Descrição do Manual</span>
 						</div>
 					</div>
@@ -37,11 +42,7 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label">Escolha o Tipo do Manual:</label>
 						<div class="col-lg-6">
-                            <select class="itemName form-control" style="width:500px;" name="tipo_manual" required accept="application/pdf">
-                                @foreach($cadastro_auxiliar_tipo_manual as $c)
-                                    <option name="tipo_manual">{{$c->tipo_manual}}</option>
-                                @endforeach
-                            </select>
+							{{Form::select('tipo_manual', $tipo_manual, null, ['class' => 'form-control'])}}
                             <span class="form-text text-muted">Escolha o Tipo do Manual</span>
 						</div>
 					</div>
@@ -69,16 +70,14 @@
 						<div class="row">
 							<div class="col-lg-3"></div>
 							<div class="col-lg-6">
-								<button type="submit" class="btn btn-brand">Submit</button>
-								<button type="reset" class="btn btn-secondary">Cancel</button>
+								<button type="submit" class="btn btn-brand">Salvar</button>
+								<button type="reset" class="btn btn-secondary">Cancelar</button>
 							</div>
 						</div>
 					</div>
 				</div>
-			</form>
-
-
-
+				{{Form::close()}}
+			<!-- </form>            -->
 
 
 

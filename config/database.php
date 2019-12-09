@@ -42,7 +42,14 @@ return [
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
-
+        'intranet_tj' => [
+            'driver' => 'mysql',
+            'host' => '172.17.255.13',
+            'port' => '3306',
+            'database' =>'intranet_jus',
+            'username' => 'cgj2',
+            'password' => 'lasqWkXC',
+        ],
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),

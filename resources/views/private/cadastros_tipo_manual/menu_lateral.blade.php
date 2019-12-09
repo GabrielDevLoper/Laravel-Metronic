@@ -8,7 +8,7 @@
     >
 
         <ul class="kt-menu__nav ">
-            <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href=""
+            <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href="#"
                                                                                      class="kt-menu__link "><span
                         class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg"
                                                         xmlns:xlink="http://www.w3.org/1999/xlink"

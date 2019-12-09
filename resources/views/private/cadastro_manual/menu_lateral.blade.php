@@ -8,7 +8,7 @@
     >
 
         <ul class="kt-menu__nav ">
-            <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href=""
+            <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href="#"
                                                                                      class="kt-menu__link "><span
                         class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg"
                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -25,31 +25,12 @@
     </g>
 </svg></span><span class="kt-menu__link-text">Dashboard</span></a></li>
             <li class="kt-menu__section ">
-                <h4 class="kt-menu__section-text">Tipos Manuais</h4>
-                <i class="kt-menu__section-icon flaticon-more-v2"></i>
-            </li>
-            
-            <li class="kt-menu__item " aria-haspopup="true"><a
-                    href="{{Route('listar_cadastros')}}"
-                    class="kt-menu__link "><i
-                    class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
-                    class="kt-menu__link-text">Listar Cadastros - Tipo Manual</span></a>
-            </li>
-
-            <li class="kt-menu__item " aria-haspopup="true"><a
-                    href="{{Route('tela_cadastros')}}"
-                    class="kt-menu__link "><i
-                    class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
-                    class="kt-menu__link-text">Cadastrar - Tipo Manual</span></a>
-            </li>
-
-            <li class="kt-menu__section ">
                 <h4 class="kt-menu__section-text">Manuais</h4>
                 <i class="kt-menu__section-icon flaticon-more-v2"></i>
             </li>
             
             <li class="kt-menu__item " aria-haspopup="true"><a
-                    href="{{Route('listar_cadastros')}}"
+                    href="{{Route('tela_listarManuais')}}"
                     class="kt-menu__link "><i
                     class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
                     class="kt-menu__link-text">Listar Cadastros - Manual</span></a>

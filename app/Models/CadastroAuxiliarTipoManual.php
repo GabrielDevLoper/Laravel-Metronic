@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class cadastroAuxiliar extends Model
+class CadastroAuxiliarTipoManual extends Model
 {
     protected $fillable = ['id_usuario','tipo_manual'];
     protected $guarded = ['id','created_at', 'updated_at'];
